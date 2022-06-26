@@ -1,6 +1,8 @@
 package org.ramonfpy.optional.ejemplo.repositorio;
 
 import org.ramonfpy.optional.ejemplo.models.Computador;
+import org.ramonfpy.optional.ejemplo.models.Fabricante;
+import org.ramonfpy.optional.ejemplo.models.Procesador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +14,11 @@ public class ComputadorRepositorio implements Repositorio<Computador> {
 
     public ComputadorRepositorio() {
         dataSource = new ArrayList<>();
-        dataSource.add(new Computador("Huawei AMD", "Ryzen 5"));
-        dataSource.add(new Computador("Apple x", "z1"));
+
+        Procesador procesador = new Procesador("Ryzen 12", new Fabricante("AMD"));
+        Computador huawei = new Computador("Huawei 12000 series", "Ryzen 5");
+        huawei.setProcesador(procesador);
+        dataSource.add(huawei);
     }
 
     /*@Override
